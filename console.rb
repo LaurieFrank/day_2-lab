@@ -25,7 +25,8 @@ properties1 = PropertyTracker.all()
 # properties2 = PropertyTracker.all()
 #
 # PropertyTracker.delete_all()
-#
+#binding.pry
+
 # properties3 = PropertyTracker.all()
 
 property_three = PropertyTracker.find(1)
