@@ -12,5 +12,8 @@ property_hash_two = {'address' => '12 Hawkhill Close', 'value' => '150000',
 property_one = PropertyTracker.new(property_hash_one)
 property_two = PropertyTracker.new(property_hash_two)
 
+property_one.save
+property_two.save
+
 binding.pry
 nil
