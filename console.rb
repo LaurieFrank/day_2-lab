@@ -14,6 +14,19 @@ property_two = PropertyTracker.new(property_hash_two)
 
 property_one.save
 property_two.save
+property_one.value=1
+
+property_one.update()
+
+properties1 = PropertyTracker.all()
+
+property_one.delete()
+
+properties2 = PropertyTracker.all()
+
+PropertyTracker.delete_all()
+
+properties3 = PropertyTracker.all()
 
 binding.pry
 nil
