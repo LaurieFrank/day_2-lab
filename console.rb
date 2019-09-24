@@ -20,13 +20,16 @@ property_one.update()
 
 properties1 = PropertyTracker.all()
 
-property_one.delete()
+# property_one.delete()
+#
+# properties2 = PropertyTracker.all()
+#
+# PropertyTracker.delete_all()
+#
+# properties3 = PropertyTracker.all()
 
-properties2 = PropertyTracker.all()
-
-PropertyTracker.delete_all()
-
-properties3 = PropertyTracker.all()
+property_three = PropertyTracker.find(1)
+property_four = PropertyTracker.find_by_address('60 Bavelaw Road')
 
 binding.pry
 nil

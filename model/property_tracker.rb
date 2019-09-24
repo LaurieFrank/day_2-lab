@@ -6,7 +6,7 @@ attr_accessor :address, :value, :no_of_bedrooms, :year_built
 attr_reader :id
 
 def initialize (options)
-    @id = options['id'] if options['id']
+    @id = options['id'].to_i if options['id']
     @address = options['address']
     @value = options['value'].to_i()
     @no_of_bedrooms = options['no_of_bedrooms'].to_i()
@@ -52,8 +52,8 @@ values = [@address, @value, @no_of_bedrooms, @year_built, @id]
 db.prepare("update", sql)
 db.exec_prepared("update", values)
 db.close()
-
 end
+
 def PropertyTracker.all()
   db = PG.connect({ dbname: "property_tracker", host: 'localhost' })
   sql = "SELECT * FROM properties"
@@ -69,6 +69,21 @@ def PropertyTracker.delete_all()
 db.prepare("delete_all", sql)
 properties = db.exec_prepared("delete_all")
 db.close()
+end
+
+def PropertyTracker.find(id)
+  properties = PropertyTracker.all()
+  for property in properties
+  return property if property.id == id
+  end
+end
+
+def PropertyTracker.find_by_address(address)
+  properties = PropertyTracker.all()
+  for property in properties
+  return property if property.address == address
+  end
+  return nil
 end
 
 end
